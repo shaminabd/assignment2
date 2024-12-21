@@ -1,13 +1,24 @@
 public class Person {
     private static int id = 1;
-    private int id_Gen;
+    private int id_gen;
     private String name;
     private String surname;
     private int age;
     private boolean gender;
 
-    public Person(int id_Gen, String name, String surname, int age, boolean gender) {
-        this.id_Gen = id_Gen;
+
+    public Person(){
+        id_gen = id++;
+    }
+
+    public Person(String name, String surname){
+        this();
+        this.name = name;
+        this.surname = surname;
+    }
+
+    public Person(String name, String surname, int age, boolean gender) {
+        this();
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -16,10 +27,6 @@ public class Person {
 
     public static int getId() {
         return id;
-    }
-
-    public int getId_Gen() {
-        return id_Gen;
     }
 
     public String getName() {
@@ -56,11 +63,7 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", age=" + age +
-                ", gender=" + gender +
-                '}';
+        String genderString = gender ? "Male" : "Female";
+        return "Hi, I am " + name + " " + surname + ", a " + age + "-year-old " + genderString + ".";
     }
 }
