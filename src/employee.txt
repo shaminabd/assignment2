@@ -1,5 +1,0 @@
-Abdullayev Shynggys CEO 19 true 45000000
-Damelia Anuarova Secretary 18 false 500000
-Nariman Narimanov Worker 30 true 300000
-Ali Baimen Director 18 true 3000000
-Coder Coderovic Developer 25 true 2000000
