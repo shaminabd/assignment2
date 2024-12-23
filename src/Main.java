@@ -4,16 +4,30 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        ArrayList<Student> employees = new ArrayList<>();
+        School hogwarts = new School();
 
-        //File file = new File("C:\\Users\\Chingishan\\IdeaProjects\\projectNumber1\\src\\employee.txt");
-        //Scanner scanner = new Scanner(file);
+        File studentFile = new File("students.txt");
+        Scanner studentScanner = new Scanner(studentFile);
+        File schoolFile = new File("schools.txt");
+        Scanner schoolScanner = new Scanner(schoolFile);
 
-        Person person1 = new Person("Harry", "Potter", 21, true);
-        Person person2 = new Person("Hermione", "Granger", 19, false);
+        while(studentScanner.hasNext()){
+            String name = studentScanner.next();
+            String surname = studentScanner.next();
+            int age = studentScanner.nextInt();
+            boolean gender = studentScanner.nextBoolean();
+            int studentId = studentScanner.nextInt();
+            ArrayList<Integer> grades = new ArrayList<>();
 
-        // Displaying the introduction
-        System.out.println(person1.toString());
-        System.out.println(person2.toString());
+            while (studentScanner.hasNext()){
+                grades.add(studentScanner.nextInt());
+            }
+
+            Student student = new Student(name, surname, studentId, grades);
+            student.setAge(age);
+            student.setGender(gender);
+
+            hogwarts.addMember(student);
+        }
     }
 }

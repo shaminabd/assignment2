@@ -1,32 +1,19 @@
 public class Person {
-    private static int id = 1;
-    private int id_gen;
     private String name;
     private String surname;
     private int age;
     private boolean gender;
 
-
-    public Person(){
-        id_gen = id++;
-    }
-
     public Person(String name, String surname){
-        this();
         this.name = name;
         this.surname = surname;
     }
 
     public Person(String name, String surname, int age, boolean gender) {
-        this();
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.gender = gender;
-    }
-
-    public static int getId() {
-        return id;
     }
 
     public String getName() {
