@@ -1,12 +1,13 @@
 import java.util.ArrayList;
 
 public class Student extends Person {
+    private static int studentIdCounter = 1;
     private int studentId;
     private ArrayList<Integer> grades;
 
-    public Student(String name, String surname, int studentId, ArrayList<Integer> grades) {
+    public Student(String name, String surname, ArrayList<Integer> grades) {
         super(name, surname);
-        this.studentId = studentId;
+        this.studentId = studentIdCounter++;
         this.grades = new ArrayList<>(grades);
     }
 
@@ -31,7 +32,8 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return super.toString() + " I am a student with ID " + studentId + ".";
+        return super.toString() + " I am a student with ID " + studentId + " and GPA: " + String.format("%.2f", calculateGPA()) + ".";
     }
+
 
 }

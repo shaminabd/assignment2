@@ -40,8 +40,14 @@ public class Teacher extends Person {
         this.yearsOfExperience = yearsOfExperience;
     }
 
+    public void giveRaise(int percent) {
+        this.salary += this.salary * percent / 100;
+    }
+
     @Override
     public String toString() {
-        return super.toString()+" I teach " + subject + ".";
+        return super.toString() + " I teach " + subject + ", have " + yearsOfExperience +
+                " years of experience, and earn a salary of " + salary + ".";
     }
+
 }
