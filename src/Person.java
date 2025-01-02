@@ -1,4 +1,4 @@
-public class Person {
+public class Person implements Payable, Comparable<Person> {
     private static int id=1;
     private int id_gen;
     private String name;
@@ -38,6 +38,16 @@ public class Person {
 
     public String getPosition(){
         return "Student";
+    }
+
+    @Override
+    public double getPaymentAmount() {
+        return 0.0; // Default payment for Person
+    }
+
+    @Override
+    public int compareTo(Person other) {
+        return Double.compare(this.getPaymentAmount(), other.getPaymentAmount());
     }
 
     @Override
