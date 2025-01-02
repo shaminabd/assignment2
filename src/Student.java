@@ -1,39 +1,35 @@
-import java.util.ArrayList;
+public class Student extends Person implements Payable{
+    private double gpa;
 
-public class Student extends Person {
-    private static int studentIdCounter = 1;
-    private int studentId;
-    private ArrayList<Integer> grades;
 
-    public Student(String name, String surname, ArrayList<Integer> grades) {
+    public Student() {
+        this.gpa = 0.0;
+    }
+
+    public Student(String name, String surname, double gpa) {
         super(name, surname);
-        this.studentId = studentIdCounter++;
-        this.grades = new ArrayList<>(grades);
+        this.gpa = gpa;
     }
 
-    public void addGrade(int grade) {
-        if (grade >= 0 && grade <= 100) {
-            grades.add(grade);
-        } else {
-            throw new IllegalArgumentException("Grade must be between 0 and 100.");
-        }
+    public double getGpa() {
+        return gpa;
     }
 
-    public double calculateGPA() {
-        if (grades.isEmpty()) {
-            return 0.0;
-        }
-        int total = 0;
-        for (int grade : grades) {
-            total += grade;
-        }
-        return total / (double) grades.size();
+    public void setGpa(double gpa) {
+        this.gpa = gpa;
     }
 
     @Override
     public String toString() {
-        return super.toString() + " I am a student with ID " + studentId + " and GPA: " + String.format("%.2f", calculateGPA()) + ".";
+        return "Student: " + super.toString();
     }
 
-
+    @Override
+    public double getPaymentAmount() {
+        if (gpa > 2.67) {
+            return 36660.00;
+        } else {
+            return 0.00;
+        }
+    }
 }

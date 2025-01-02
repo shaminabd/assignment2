@@ -1,26 +1,19 @@
-public class Employee extends Person {
-    private String field;
+public class Employee extends Person implements Payable {
+    private String position;
     private double salary;
 
     public Employee() {
         super();
-        this.field = "Jumyssyz";
+        this.position = "Jumyssyz";
         this.salary = 0.0;
     }
 
-    public Employee(String name, String surname, String field, double salary) {
+    public Employee(String name, String surname, String position, double salary) {
         super(name, surname);
-        this.field = field;
+        this.position = position;
         this.salary = salary;
     }
 
-    public String getField() {
-        return field;
-    }
-
-    public void setField(String field) {
-        this.field = field;
-    }
 
     public double getSalary() {
         return salary;
@@ -28,5 +21,24 @@ public class Employee extends Person {
 
     public void setSalary(double salary) {
         this.salary = salary;
+    }
+
+    @Override
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
+
+    @Override
+    public double getPaymentAmount() {
+        return salary; // Employees earn their salary
+    }
+
+    @Override
+    public String toString() {
+        return "Employee: "  + super.toString();
     }
 }
